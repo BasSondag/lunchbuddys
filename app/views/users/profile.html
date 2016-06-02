@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Your Profile</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/profile.style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<ul class="nav nav-pills">
+			<li role="presentation"><a href="/users/dashboard"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+			<li role="presentation"><a href="/users/logout">Logout</a></li>
+			{% if buddy_check %}
+			<li role="presentation"><a href="/appointments/match">My Match</a></li>
+			{% endif %}
+			<li role="presentation"class="active"><a href="/users/profile"id="nametag">{{session['name']}}</a></li>
+			<li role="presentation" class="pull-right"><a href="/users/dashboard" ><img id="lunchbuddy" src="/static/images/lunchbuddys.png"></a>
+		</ul>
+
+		<div id="profile">
+			<img src="{{user.image_link}}" class="img-thumbnail">
+			<ul class="list-group">
+			  <li class="list-group-item">{{user.headline}}</li>
+			  <li class="list-group-item">{{user.industry}}</li>
+			  <li class="list-group-item">{{user.location}}</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+

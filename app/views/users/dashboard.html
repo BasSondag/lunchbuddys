@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find your lunch buddy today!</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/dashboard_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.get('/users/get_info', function(res) {
+				var str = '';
+				if(res.headline){
+					str += res.headline;
+				$('#info').html(str);	
+				} else {
+					str = '';
+				}
+				
+			}, 'json');
+
+			$('#available').click(function(){
+		 		$("#form").show("slow");
+	 			$('#add_yourself').submit(function(){
+    				$.post($(this).attr('action'), $(this).serialize(), function(res) {
+    					console.log(res);
+        				$('#flash').html(res);
+    				});
+					$.get('/appointments/get_availables', function(res) {
+						$('#first tbody').html(res);
+					});
+		    		return false;
+    			});
+        	});
+			setInterval(function() {
+				$.get('/appointments/get_availables', function(res) {
+					$('#first tbody').html(res);
+				});
+				return false;
+			}, 1000);
+
+
+        });
+	</script>
+</head>
+<body>
+	<div id="container">
+		<ul class="nav nav-pills">
+			<li role="presentation" class="active"><a href="/users/dashboard"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+			<li role="presentation"><a href="/users/logout">Logout</a></li>
+			{% if buddy_check %}
+			<li role="presentation"><a href="/appointments/match">My Match</a></li>
+			{% endif %}
+			<li role="presentation"><a href="/users/profile"id="nametag">{{session['name']}}</a></li>
+			<li role="presentation" class="pull-right"><a href="/users/dashboard" ><img id="lunchbuddy" src="/static/images/lunchbuddys.png"></a>
+		</ul>
+		<div id="flash">
+	        {% with messages = get_flashed_messages() %}
+	            {% if messages %}
+	                {% for message in messages %}
+	                    <div class="alert alert-danger" role="alert">
+		                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  					<span class="sr-only">Error:</span>
+	                    	<p id="flag">{{message}}</p>
+	                    </div>
+	                {% endfor %}
+	            {% endif %}
+	        {% endwith %}
+        </div>
+        <button id="available">I am available today!</button></br>
+		<div id="centerpiece">
+			<img id="photo" src="{{session['image_link']}}" class="img-thumbnail">
+			<div id="info">{{session['headline']}}</div>
+		</div>
+		<div id="form" style="display:none">
+			<form id="add_yourself" action="/appointments/add" method="post" class="form-inline">
+				<div class="form-group">
+					Locations:<select name="location" class="form-control">
+						{% for x in locations %}
+							  <option value="{{x.location}}" name="location">{{x.location}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="form-group">
+					New Location:<input type="text" name="location_new" placeholder="Location" class="form-control">
+				</div>
+				<div class="form-group">
+					Topics:<select name="topic" class="form-control">
+						{% for x in topics %}
+							<div class='topic'>
+							  <option value="{{x.topic}}" name="topic">{{x.topic}}</option>
+							</div>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="form-group">
+					New Topic: <input type="text" name="topic_new" placeholder="Topic" class="form-control">
+				</div>
+				<input type="submit" name="submit" value="Add Yourself!" class="btn btn-default">
+			</form>
+		</div>
+
+		<h3>People who are game for lunch:</h3>
+		<div id="buddys">
+		<table id="first" class="table table-hover">
+			<thead>
+				<tr>
+					<th>Headline</th>
+					<th>Industry</th>
+					<th>Topic</th>
+					<th>Location</th>
+					<th>Lunch together?</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div id="body2">
+				{% for x in availables %}
+				{% if not buddy_check %}
+				<tr>
+					<td>{{x['headline']}}</td>
+					<td>{{x['industry']}}</td>
+					<td>{{x['topic']}}</td>
+					<td>{{x['location']}}</td>
+					{% if x.linkedin_user_id != session['id'] %}
+					<td>
+						<form action="/appointments/buddy/{{x.linkedin_user_id}}" method="POST">
+							<button type="submit" class="btn btn-default" aria-label="Left Align">Make a LunchBuddy"</button>
+						</form>
+					</td>
+				{% else %}
+					<td></td>
+				{% endif %}
+					{% if x.linkedin_user_id == session['id'] %}
+						<td>
+							<form id="button_delete" action="/appointments/delete/{{x.linkedin_user_id}}" method="POST">
+								 <button id="delete_button"type="submit" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+							</form>
+						</td>
+					{% else %}
+						<td></td>
+					{% endif %}
+				</tr>
+				{% endif %}
+				{% endfor %}
+				</div>
+			</tbody>
+		</table>
+		<h3 id="bottom">Some important conversation topics happening this afternoon:</h3>
+		<table class="table table-hover" id="bottom_table">
+			<thead>
+				<tr>
+					<th>Topic</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for x in appointments %}
+				<tr>
+					<td>{{x.topic}}</td>
+					<td>{{x.location}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		</div>
+
+	</div><!--end of container-->
+</body>
+</html>

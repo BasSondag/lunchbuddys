@@ -1,0 +1,46 @@
+#container{
+	margin: 0 auto;
+	width: 1200px;
+
+}
+
+#buddys table{
+	width: 1200px;
+	border: 2px solid black;
+}
+
+#nav{
+	display: inline;
+}
+
+#photo {
+	margin-top: 20px;
+}
+
+#available{
+	margin-top: 10px;
+	float: right;
+}
+
+#centerpiece{
+	text-align: center;
+}
+
+#centerpiece img{
+	margin-left: 150px;
+	margin-top: 50px;
+}
+
+#form{
+	margin-top: 20px;
+	text-align: center;
+}
+
+#lunchbuddy{
+	width: 100px;
+	height: auto;
+}
+
+#bottom{
+	margin-top: 50px;
+}

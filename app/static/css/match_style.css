@@ -1,0 +1,26 @@
+
+#container{
+	margin: 0 auto;
+	width: 1200px;
+}
+
+#profile{
+	text-align: center;
+	font-size: 20px;
+}
+
+
+#lunchbuddy{
+	width: 100px;
+	height: auto;
+}
+
+.row{
+	text-align: center;
+	font-size: 16px;
+}
+
+	.row img{
+		width: 200px;
+		height: auto;
+	}
