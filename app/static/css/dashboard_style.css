@@ -10,14 +10,16 @@
 	/*width: 1200px;*/
 	border: 2px solid black;
 	align-self: center;
-	padding-right: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 #bottom_table{
 	margin-top: 50px;
 	border: 2px solid black;
 	align-self: center;
-	padding-right: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 #nav{
@@ -36,7 +38,7 @@
 
 #centerpiece img{
 	align-self: center;
-	margin-left: 110px;
+	margin-left: 120px;
 	margin-top: 60px;
 }
 
