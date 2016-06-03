@@ -10,6 +10,8 @@
 	/*width: 1200px;*/
 	border: 2px solid black;
 	align-self: center;
+	padding-right: 15px;
+	padding-left: 15px;
 	margin-right: 15px;
 	margin-left: 15px;
 }
@@ -18,6 +20,8 @@
 	margin-top: 50px;
 	border: 2px solid black;
 	align-self: center;
+	padding-right: 15px;
+	padding-left: 15px;
 	margin-right: 15px;
 	margin-left: 15px;
 }
