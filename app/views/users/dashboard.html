@@ -58,8 +58,8 @@
 			{% if buddy_check %}
 			<li role="presentation"><a href="/appointments/match">My Match</a></li>
 			{% endif %}
-			<li role="presentation"><a href="/users/profile"id="nametag">{{session['name']}}</a></li>
-			<li role="presentation" class="pull-right"><a href="/users/dashboard" ><img id="lunchbuddy" src="/static/images/lunchbuddys2.png"></a>
+			<li role="presentation" class="col-xs-3"><a href="/users/profile"id="nametag">{{session['name']}}</a></li>
+			<li role="presentation" class="pull-right col-xs-2"><a href="/users/dashboard" ><img id="lunchbuddy" src="/static/images/lunchbuddys2.png"></a>
 		</ul>
 		<div id="flash">
 	        {% with messages = get_flashed_messages() %}
@@ -75,7 +75,7 @@
 	        {% endwith %}
         </div>
         <button id="available" class="pull-right">I'm available!</button></br>
-		<div id="centerpiece" class="col-md-12 col-xs-12">
+		<div id="centerpiece">
 			<img id="photo" src="{{session['image_link']}}" class="img-thumbnail">
 			<div id="info">{{session['headline']}}</div>
 		</div>
