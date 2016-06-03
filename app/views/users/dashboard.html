@@ -112,11 +112,10 @@
 		<table id="first" class="table table-hover col-md-12 col-xs-12">
 			<thead>
 				<tr>
-					<th>Headline</th>
-					<th>Industry</th>
+					<th>Headline (Industry)</th>
 					<th>Topic</th>
 					<th>Location</th>
-					<th>Lunch together?</th>
+					<th>LunchBuddy?</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -125,19 +124,16 @@
 				{% for x in availables %}
 				{% if not buddy_check %}
 				<tr>
-					<td>{{x['headline']}}</td>
-					<td>{{x['industry']}}</td>
+					<td>{{x['headline']}} ({{x['industry']}})</td>
 					<td>{{x['topic']}}</td>
 					<td>{{x['location']}}</td>
 					{% if x.linkedin_user_id != session['id'] %}
 					<td>
 						<form action="/appointments/buddy/{{x.linkedin_user_id}}" method="POST">
-							<button type="submit" class="btn btn-default" aria-label="Left Align">Make a LunchBuddy"</button>
+							<button type="submit" class="btn btn-default" aria-label="Left Align">Yes!"</button>
 						</form>
 					</td>
 				{% else %}
-					<td></td>
-				{% endif %}
 					{% if x.linkedin_user_id == session['id'] %}
 						<td>
 							<form id="button_delete" action="/appointments/delete/{{x.linkedin_user_id}}" method="POST">
@@ -147,6 +143,7 @@
 					{% else %}
 						<td></td>
 					{% endif %}
+				{% endif %}
 				</tr>
 				{% endif %}
 				{% endfor %}
