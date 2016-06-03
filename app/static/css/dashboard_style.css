@@ -35,9 +35,8 @@
 
 #centerpiece img{
 	align-self: center;
-	/*margin-left: 150px;*/
+	margin-left: 20px;
 	margin-top: 60px;
-	padding-left: 15px;
 }
 
 #form{

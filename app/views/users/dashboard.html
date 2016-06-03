@@ -76,9 +76,8 @@
         </div>
         <button id="available" class="pull-right">I'm available!</button></br></br>
 		<div id="centerpiece">
-			<div id="info">
-			<img src="{{session['image_link']}}" class="img-thumbnail">
-			{{session['headline']}}</div>
+			<div style="text-align:center"><img src="{{session['image_link']}}" class="img-thumbnail"></div>
+			<div id="info">{{session['headline']}}</div>
 		</div>
 		<div id="form" style="display:none">
 			<form id="add_yourself" action="/appointments/add" method="post" class="form-inline">
