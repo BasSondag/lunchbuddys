@@ -15,7 +15,7 @@ class DBConfig(object):
 class DevelopmentDBConfig(DBConfig):
     DB_USERNAME = 'root'
     # DB_PASSWORD = 'root'
-    #for deployment use:
+    #for deployment user:
     DB_PASSWORD = ''
     DB_DATABASE_NAME = 'lunchbuddys'
     DB_HOST = 'localhost'

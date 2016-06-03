@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			// var alerted = localStorage.getItem('alerted') ||'';
@@ -51,16 +52,24 @@
 	</script>
 </head>
 <body>
-	<div id="container">
-		<ul class="nav nav-pills col-md-8 col-xs-12">
-			<li role="presentation" class="active"><a href="/users/dashboard"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-			<li role="presentation"><a href="/users/logout">Logout</a></li>
-			{% if buddy_check %}
-			<li role="presentation"><a href="/appointments/match">My Match</a></li>
-			{% endif %}
-			<li role="presentation"><a href="/users/profile"id="nametag">{{session['name']}}</a></li>
-			<li role="presentation" class="pull-right"><a href="/users/dashboard" ><img id="lunchbuddy" src="/static/images/lunchbuddys2.png"></a>
-		</ul>
+	<div id="container col-md-8">
+			<ul class="nav nav-pills col-md-12 col-xs-12">
+				<li class="active"><a href="/users/dashboard"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+				<!-- <li role="presentation"><a href="/users/logout">Logout</a></li> -->
+				{% if buddy_check %}
+				<li><a href="/appointments/match">My Match</a></li>
+				{% endif %}
+	<!-- 			<a href="/users/profile"id="nametag">{{session['name']}}</a> -->
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{session['name']}} 
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/users/logout">Logout</a></li>
+					</ul>
+				</li>
+				<li class="pull-right"><a href="/users/dashboard" ><img id="lunchbuddy" src="/static/images/lunchbuddys2.png"></a>
+			</ul>
+		
 		<div id="flash">
 	        {% with messages = get_flashed_messages() %}
 	            {% if messages %}
