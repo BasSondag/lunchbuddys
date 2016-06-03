@@ -1,12 +1,23 @@
-#container{
-	margin: 0 auto;
-	width: 1200px;
 
+#container{
+	/*margin: 0 auto;*/
+	margin-left: 15px;
+	margin-right: 15px;
+	/*width: 1200px;*/
 }
 
 #buddys table{
-	width: 1200px;
+	/*width: 1200px;*/
 	border: 2px solid black;
+	align-self: center;
+	padding-right: 15px;
+}
+
+#bottom_table{
+	margin-top: 50px;
+	border: 2px solid black;
+	align-self: center;
+	padding-right: 15px;
 }
 
 #nav{
@@ -40,7 +51,7 @@
 	width: 100px;
 	height: auto;
 }
-
-#bottom{
-	margin-top: 50px;
-}
+/*
+h3 {
+	font-size: 100px;
+}*/
