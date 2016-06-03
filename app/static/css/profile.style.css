@@ -17,6 +17,7 @@
 
 	#profile ul{
 		/*width: 500px;*/
+		max-width: 50%
 		width: auto;
 		text-align: center;
 		/*margin-left: 350px;*/
