@@ -38,8 +38,7 @@
 }
 
 #centerpiece img{
-	display: block;
-    margin: 0 auto;
+	align-self: center;
 /*	margin-left: 150px;
 	margin-top: 50px;*/
 }
