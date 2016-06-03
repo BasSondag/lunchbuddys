@@ -51,8 +51,8 @@
 	</script>
 </head>
 <body>
-	<div id="container" class="container-fluid">
-		<ul class="nav nav-pills">
+	<div id="container">
+		<ul class="nav nav-pills col-md-12 col-xs-12">
 			<li role="presentation" class="active"><a href="/users/dashboard"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
 			<li role="presentation"><a href="/users/logout">Logout</a></li>
 			{% if buddy_check %}
@@ -109,7 +109,7 @@
 
 		<h3>People who are game for lunch:</h3>
 		<div id="buddys">
-		<table id="first" class="table table-hover">
+		<table id="first" class="table table-hover col-md-12 col-xs-12">
 			<thead>
 				<tr>
 					<th>Headline</th>
@@ -154,7 +154,8 @@
 			</tbody>
 		</table>
 		<h3 id="bottom">Some important conversation topics happening this afternoon:</h3>
-		<table class="table table-hover" id="bottom_table">
+		<table id="first" class="table table-hover col-md-12 col-xs-12">
+		<table class="table table-hover " id="bottom_table">
 			<thead>
 				<tr>
 					<th>Topic</th>
