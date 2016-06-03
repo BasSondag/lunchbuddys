@@ -55,16 +55,15 @@
 	<div id="container">
 			<ul class="nav nav-pills col-md-12 col-xs-12">
 				<li class="active"><a href="/users/dashboard"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-				<!-- <li role="presentation"><a href="/users/logout">Logout</a></li> -->
 				{% if buddy_check %}
 				<li><a href="/appointments/match">My Match</a></li>
 				{% endif %}
-	<!-- 			<a href="/users/profile"id="nametag">{{session['name']}}</a> -->
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{session['name']}} 
 					<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/users/logout">Logout</a></li>
+						<li><a href="/users/profile">Profile</a></li>
 					</ul>
 				</li>
 				<li class="pull-right"><a href="/users/dashboard" ><img id="lunchbuddy" src="/static/images/lunchbuddys2.png"></a>
