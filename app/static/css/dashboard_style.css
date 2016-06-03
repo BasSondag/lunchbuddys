@@ -1,8 +1,8 @@
 
 #container{
 	/*margin: 0 auto;*/
-	margin-left: 10px;
-	margin-right: 10px;
+/*	margin-left: 10px;
+	margin-right: 10px;*/
 	/*width: 1200px;*/
 }
 
@@ -10,16 +10,16 @@
 	/*width: 1200px;*/
 	border: 2px solid black;
 	align-self: center;
-	padding-right: 15px;
-	padding-left: 15px;
+	margin-right: 15px;
+	margin-left: 15px;
 }
 
 #bottom_table{
 	margin-top: 50px;
 	border: 2px solid black;
 	align-self: center;
-	padding-right: 15px;
-	padding-left: 15px;
+	margin-right: 15px;
+	margin-left: 15px;
 }
 
 #nav{
