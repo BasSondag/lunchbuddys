@@ -7,6 +7,7 @@
 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			// var alerted = localStorage.getItem('alerted') ||'';
 			$.get('/users/get_info', function(res) {
 				var str = '';
 				if(res.headline){
@@ -33,6 +34,12 @@
         	});
 			setInterval(function() {
 				$.get('/appointments/get_availables', function(res) {
+					// if(res){
+					// 	if(alerted != 'yes') {
+					// 		alert('You have a new request!');
+					// 		localStorage.setItem('alerted', 'yes');
+					// 	}
+					// }
 					$('#first tbody').html(res);
 				});
 				return false;

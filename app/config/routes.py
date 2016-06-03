@@ -1,11 +1,7 @@
 
 from system.core.router import routes
 
-
-
-
 #user routes
-
 routes['default_controller'] = 'Users'
 routes['/users/auth'] = 'Users#auth'
 routes['/users/logout'] = 'Users#logout'

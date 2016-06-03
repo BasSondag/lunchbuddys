@@ -14,16 +14,18 @@ class DBConfig(object):
 """ Put Development Specific Configurations here """
 class DevelopmentDBConfig(DBConfig):
     DB_USERNAME = 'root'
-    DB_PASSWORD = 'root'
+    # DB_PASSWORD = 'root'
+    #for deployment use:
+    DB_PASSWORD = ''
     DB_DATABASE_NAME = 'lunchbuddys'
     DB_HOST = 'localhost'
-    DB_PORT = 8889
+    # DB_PORT = 8889
     # for deployment use:
-    # DB_PORT = 3306
+    DB_PORT = 3306
     # """ unix_socket is used for connecting with MAMP. Take this out if you aren't using MAMP """
-    DB_OPTIONS = {
-        'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock'
-    }
+    # DB_OPTIONS = {
+    #     'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock'
+    # }
 
 """ Put Staging Specific Configurations here """
 class StagingDBConfig(DBConfig):
