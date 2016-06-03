@@ -27,6 +27,7 @@
 #available{
 	margin-top: 10px;
 	float: right;
+	margin-right: 15px;
 }
 
 #centerpiece{
@@ -35,7 +36,7 @@
 
 #centerpiece img{
 	align-self: center;
-	margin-left: 100px;
+	margin-left: 110px;
 	margin-top: 60px;
 }
 
